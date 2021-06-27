@@ -27,9 +27,10 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      - uses: actions/checkout@v2
       # Runs a single command using the runners shell
       - name: Send greeting
-        run: echo "Hello ${{ github.event.inputs.name }}" && cd .. && ls -a && pwd && open $(pwd) && ls #&& unzip nativefier-gui-darwin-x64.zip && ./nativefier-gui-darwin-x64/nativefier-gui.app/Contents/MacOS/nativefier-gui && sleep 5 && screencapture test.jpg && pwd && ls
+        run: echo "Hello ${{ github.event.inputs.name }}" && ls -a && pwd && open $(pwd) && ls #&& unzip nativefier-gui-darwin-x64.zip && ./nativefier-gui-darwin-x64/nativefier-gui.app/Contents/MacOS/nativefier-gui && sleep 5 && screencapture test.jpg && pwd && ls
       - name: Upload screenshot
         uses: actions/upload-artifact@v2
         with:
