@@ -6,15 +6,15 @@ name: Manual workflow
 # or API.
 on:
   push:
-    branches: [ master ]
+    branches: [master]
   workflow_dispatch:
     # Inputs the workflow accepts.
     inputs:
       name:
         # Friendly description to be shown in the UI instead of 'name'
-        description: 'Person to greet'
+        description: "Person to greet"
         # Default value if no value is explicitly provided
-        default: 'World'
+        default: "World"
         # Input has to be provided for the workflow to run
         required: true
 
@@ -27,11 +27,11 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    # Runs a single command using the runners shell
-    - name: Send greeting
-      run: echo "Hello ${{ github.event.inputs.name }}" && open $(pwd) && screencapture test.jpg && pwd && ls
-    - name: Upload screenshot
-      uses: actions/upload-artifact@v2
-      with:
-         name: test.jpg
-         path: /Users/runner/work/ghactionstest/ghactionstest/test.jpg
+      # Runs a single command using the runners shell
+      - name: Send greeting
+        run: echo "Hello ${{ github.event.inputs.name }}" && open $(pwd) && unzip nativefier-gui-darwin-x64.zip && ./nativefier-gui-darwin-x64/nativefier-gui.app/Contents/MacOS/nativefier-gui && sleep 5&& screencapture test.jpg && pwd && ls
+      - name: Upload screenshot
+        uses: actions/upload-artifact@v2
+        with:
+          name: test.jpg
+          path: /Users/runner/work/ghactionstest/ghactionstest/test.jpg
