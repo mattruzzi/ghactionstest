@@ -33,5 +33,5 @@ jobs:
     - name: Upload screenshot
       uses: actions/upload-artifact@v2
       with:
-         name: YouTubeonTV-darwin-x64.zip
+         name: test.jpg
          path: /Users/runner/work/ghactionstest/ghactionstest/test.jpg
