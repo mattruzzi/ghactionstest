@@ -29,10 +29,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       # Runs a single command using the runners shell
+      - name: install screenshot
+        run: pip3 install screenshot
       - name: Send greeting
-        run: echo "Hello ${{ github.event.inputs.name }}" && ls -a && pwd && open $(pwd) && ls && unzip nativefier-gui-darwin-x64.zip && ./nativefier-gui-darwin-x64/nativefier-gui.app/Contents/MacOS/nativefier-gui & sleep 25 && screencapture test.jpg && pwd && ls
+        run: echo "Hello ${{ github.event.inputs.name }}" && ls -a && pwd && open $(pwd) && ls && unzip nativefier-gui-darwin-x64.zip && ./nativefier-gui-darwin-x64/nativefier-gui.app/Contents/MacOS/nativefier-gui & sleep 25 && screencapture test.jpg && screenshot nativefier-gui && pwd && ls
       - name: Upload screenshot
         uses: actions/upload-artifact@v2
         with:
           name: test.jpg
-          path: /Users/runner/work/ghactionstest/ghactionstest/test.jpg
+          path: /Users/runner/work/ghactionstest/ghactionstest/*.jpg
