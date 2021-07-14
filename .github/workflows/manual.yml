@@ -37,4 +37,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: test.jpg
-          path: /Users/runner/work/ghactionstest/ghactionstest/*.jpg
+          path: /Users/runner/work/ghactionstest/ghactionstest/*.[jpg|png]
