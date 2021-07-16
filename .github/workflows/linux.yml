@@ -28,9 +28,11 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      - name: install scrot
+        run: apt install scrot
       - uses: actions/checkout@v2
       - name: Send greeting
-        run: echo "Hello ${{ github.event.inputs.name }}" && ls -a && pwd && open $(pwd) && ls && unzip nativefier-gui-linux-x64.zip && ./nativefier-gui-linux-x64/nativefier-gui & sleep 25 && scrot test.jpg && pwd && ls
+        run: echo "Hello ${{ github.event.inputs.name }}" && ls -a && pwd && ls && unzip nativefier-gui-linux-x64.zip && ./nativefier-gui-linux-x64/nativefier-gui & sleep 25 && scrot test.jpg && pwd && ls
       - name: Upload screenshot
         uses: actions/upload-artifact@v2
         with:
