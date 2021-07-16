@@ -29,7 +29,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Send greeting
-        run: echo "Hello ${{ github.event.inputs.name }}" && ls -a && pwd && open $(pwd) && ls && unzip nativefier-gui-darwin-x64.zip && ./nativefier-gui-linux-x64/nativefier-gui.app/Contents/MacOS/nativefier-gui & sleep 25 && scrot test.jpg && screenshot nativefier-gui -f test.png && pwd && ls
+        run: echo "Hello ${{ github.event.inputs.name }}" && ls -a && pwd && open $(pwd) && ls && unzip nativefier-gui-linux-x64.zip && ./nativefier-gui-linux-x64/nativefier-gui & sleep 25 && scrot test.jpg && screenshot nativefier-gui -f test.png && pwd && ls
       - name: Upload screenshot
         uses: actions/upload-artifact@v2
         with:
