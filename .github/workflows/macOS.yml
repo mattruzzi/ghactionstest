@@ -7,6 +7,7 @@ name: macOS
 on:
   push:
     branches: [master]
+    paths: .github/workflows/macOS.yml
   workflow_dispatch:
     # Inputs the workflow accepts.
     inputs:
