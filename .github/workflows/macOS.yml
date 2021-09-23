@@ -24,7 +24,7 @@ jobs:
   # This workflow contains a single job called "greet"
   greet:
     # The type of runner that the job will run on
-    runs-on: macos-latest
+    runs-on: macos-11
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -32,8 +32,7 @@ jobs:
       # Runs a single command using the runners shell
       - name: install screenshot
         run: pip3 install screenshot
-      - name: Send greeting
-        run: echo "Hello ${{ github.event.inputs.name }}" && ls -a && pwd && open $(pwd) && ls && unzip nativefier-gui-darwin-x64.zip && ./nativefier-gui-darwin-x64/nativefier-gui.app/Contents/MacOS/nativefier-gui & sleep 25 && screencapture test.jpg && screenshot nativefier-gui -f test.png && pwd && ls
+      - run: echo "Hello ${{ github.event.inputs.name }}" && ls -a && pwd && open $(pwd) && ls && unzip nativefier-gui-darwin-x64.zip && ./nativefier-gui-darwin-x64/nativefier-gui.app/Contents/MacOS/nativefier-gui & sleep 25 && screencapture test.jpg && screenshot nativefier-gui -f test.png && pwd && ls
       - name: Upload screenshot
         uses: actions/upload-artifact@v2
         with:
