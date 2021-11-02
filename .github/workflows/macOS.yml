@@ -32,7 +32,7 @@ jobs:
       # Runs a single command using the runners shell
       - name: install screenshot
         run: pip3 install screenshot
-      - run: echo "Hello ${{ github.event.inputs.name }}" && ls -a && pwd && open $(pwd) && ls && wget https://github.com/mattruzzi/nativefier-gui/releases/latest/download/nativefier-gui-darwin-x64.zip && 
+      - run: echo "Hello ${{ github.event.inputs.name }}" && ls -a && pwd && open $(pwd) && ls && wget https://github.com/mattruzzi/nativefier-gui/releases/latest/download/nativefier-gui-darwin-x64.zip && ls
       - run: ./nativefier-gui-darwin-x64/nativefier-gui.app/Contents/MacOS/nativefier-gui & sleep 25 && screencapture test.jpg && screenshot nativefier-gui -f test.png && pwd && ls
       - name: Upload screenshot
         uses: actions/upload-artifact@v2
